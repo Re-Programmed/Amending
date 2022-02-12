@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : ScriptableObject
+public interface IAttackCard
 {
-    public string Title;
+    void Attack();
+
+    int GetAttackingPower();
 }
