@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDeckManager : MonoBehaviour
+namespace Cards
 {
-    public List<Card> cards { get; private set; } = new List<Card>();
-
-    public void AddCardToDeck(Card card)
+    public class CardDeckManager : MonoBehaviour
     {
-        cards.Add(card);
-    }
+        public List<Card> cards { get; private set; } = new List<Card>();
 
-    void Start()
-    {
-        
-    }
+        public void AddCardToDeck(Card card)
+        {
+            cards.Add(card);
+        }
 
-    void Update()
-    {
-        
+        void Start()
+        {
+
+        }
+
+        void Update()
+        {
+
+        }
     }
 }

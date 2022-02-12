@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAttackCard
+namespace Cards
 {
-    void Attack();
+    public interface IAttackCard
+    {
+        void Attack();
 
-    int GetAttackingPower();
+        int GetAttackingPower();
+    }
 }

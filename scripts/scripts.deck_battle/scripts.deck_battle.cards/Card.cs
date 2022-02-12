@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : ScriptableObject
+namespace Cards
 {
-    public string Title;
+    public class Card : ScriptableObject
+    {
+        public string Title;
+        [TextArea(2, 4)]
+        public string Desc;
+    }
 }

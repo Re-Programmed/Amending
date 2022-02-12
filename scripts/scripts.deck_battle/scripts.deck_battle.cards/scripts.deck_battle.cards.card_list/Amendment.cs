@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Amendment", menuName = "ScriptableObjects/Cards/Amendment", order = 1)]
-public class Amendment : Card, IAmendment
+namespace Cards
 {
-    public void PlayCard()
+    [CreateAssetMenu(fileName = "New Amendment", menuName = "ScriptableObjects/Cards/Amendment", order = 1)]
+    public class Amendment : Card, IAmendment
     {
+        public void PlayCard()
+        {
 
+        }
     }
 }

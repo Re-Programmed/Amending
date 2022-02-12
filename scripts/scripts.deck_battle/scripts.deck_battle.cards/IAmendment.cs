@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAmendment
+namespace Cards
 {
-    void PlayCard();
+    public interface IAmendment
+    {
+        void PlayCard();
+    }
 }
