@@ -6,6 +6,7 @@ namespace Cards
 {
     public interface IAmendment
     {
-        void PlayCard();
+        AmendmentDefenses[] GetDefensePowers();
+        int GetPowerForCard(Card card);
     }
 }

@@ -62,6 +62,17 @@ namespace Cards
 
                             TurnManager.PlayerMove(card);
                         }
+
+                        if(card is IAmendment)
+                        {
+                            IAmendment amendment = card as IAmendment;
+
+                            if(TurnManager.moves == 0)
+                            {
+                                HealthManager.AttackEnemy(amendment.GetPowerForCard(TurnManager.LastCardPlayed));
+                                TurnManager.PlayerMove(card);
+                            }
+                        }
                     }
                 }
             }

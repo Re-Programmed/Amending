@@ -8,7 +8,7 @@ public class TurnManager : MonoBehaviour
 {
     static bool isPlayersTurn = true;
 
-    static int moves = 0;
+    public static int moves { get; private set; } = 0;
 
     public static Card LastCardPlayed;
 
