@@ -12,6 +12,8 @@ namespace Cards
         protected TextMeshPro PowerLevelDisplay;
         [SerializeField]
         protected SpriteRenderer Overlay;
+        [SerializeField]
+        protected SpriteRenderer CardSP;
 
         [Header("Card")]
         [SerializeField]
@@ -25,6 +27,7 @@ namespace Cards
 
         private Vector2 startScale;
 
+   
         public void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
@@ -43,11 +46,15 @@ namespace Cards
             {
                 hovered = HoverDisplay.hoveredCard == this;
 
-                transform.localScale = Vector2.Lerp(transform.localScale, startScale * 1.25f, Time.deltaTime * 4f);
+                transform.localScale = Vector2.Lerp(transform.localScale, startScale * 1.25f, Time.deltaTime * 7f);
+                Overlay.sortingLayerName = "card_hover";
+                CardSP.sortingLayerName = "card_hover";
             }
             else
             {
-                transform.localScale = Vector2.Lerp(transform.localScale, startScale, Time.deltaTime * 4f);
+                transform.localScale = Vector2.Lerp(transform.localScale, startScale, Time.deltaTime * 7f);
+                Overlay.sortingLayerName = "card_normal";
+                CardSP.sortingLayerName = "card_normal";
             }
         }
 

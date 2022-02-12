@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ShameCard1
   m_EditorClassIdentifier: 
   Title: Press Shame
+  Desc: Use news articles mentioning the opponent to shame them. A great verbal attack.
