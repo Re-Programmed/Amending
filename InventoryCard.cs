@@ -50,13 +50,18 @@ namespace Cards
                 Overlay.sortingLayerName = "card_hover";
                 CardSP.sortingLayerName = "card_hover";
 
-                if(Input.GetMouseButtonDown(0))
+                if(TurnManager.GetIsPlayersTurn())
                 {
-                    if (card is IAttackCard)
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        IAttackCard attkcard = card as IAttackCard;
+                        if (card is IAttackCard)
+                        {
+                            IAttackCard attkcard = card as IAttackCard;
 
-                        attkcard.Attack();
+                            attkcard.Attack();
+
+                            TurnManager.PlayerMove(card);
+                        }
                     }
                 }
             }
@@ -78,6 +83,13 @@ namespace Cards
                 IAttackCard attkcard = card as IAttackCard;
 
                 stats = $"<color=red>Attack Card\n<color=green>Power: {attkcard.GetAttackingPower()}";
+            }
+
+            if (card is IAmendment)
+            {
+                IAmendment attkcard = card as IAmendment;
+
+                stats = $"<color=yellow>Amendment";
             }
 
             HoverDisplay.HoverAt(new Vector2(transform.position.x + hoverPosition.x, transform.position.y + hoverPosition.y), card.Title, stats, card.Desc, this);

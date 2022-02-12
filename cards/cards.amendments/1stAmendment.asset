@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c978cd388ad52c6438d4342b538da29d, type: 3}
   m_Name: 1stAmendment
   m_EditorClassIdentifier: 
-  Title: 
+  Title: 1st Amendment
+  Desc: Congress shall make no law respecting an establishment of religion, or prohibiting
+    the free exercise thereof; or abridging the freedom of speech, or of the press;
+    or the right of the people peaceably to assemble, and to petition the Government
+    for a redress of grievances.
