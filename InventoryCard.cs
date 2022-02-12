@@ -49,6 +49,16 @@ namespace Cards
                 transform.localScale = Vector2.Lerp(transform.localScale, startScale * 1.25f, Time.deltaTime * 7f);
                 Overlay.sortingLayerName = "card_hover";
                 CardSP.sortingLayerName = "card_hover";
+
+                if(Input.GetMouseButtonDown(0))
+                {
+                    if (card is IAttackCard)
+                    {
+                        IAttackCard attkcard = card as IAttackCard;
+
+                        attkcard.Attack();
+                    }
+                }
             }
             else
             {

@@ -10,10 +10,16 @@ public class HealthManager
     public static void AttackPlayer(int HP)
     {
         PlayerHealth -= HP;
+        EnemyHealth += HP;
+
+        HPSlider.SetValue(EnemyHealth);
     }
 
     public static void AttackEnemy(int HP)
     {
         EnemyHealth -= HP;
+        PlayerHealth += HP;
+
+        HPSlider.SetValue(EnemyHealth);
     }
 }
