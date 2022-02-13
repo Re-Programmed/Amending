@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38b5031f2451b440985419aebc7875e, type: 3}
+  m_Name: 9thAmendment
+  m_EditorClassIdentifier: 
+  Title: 9th Amendment
+  Desc: Gives you human rights. Stops any attack card.
+  dialogue:
+    dialogues:
+    - WhoIsSaying: 0
+      text: The 9th Amendment gives me human rights!
+      playerEmotion: point_paper
+      enemyEmotion: awed
+    - WhoIsSaying: 0
+      text: And, there is nothing you can do about that!
+      playerEmotion: shrug
+      enemyEmotion: awed
+  retaliation:
+    dialogues: []

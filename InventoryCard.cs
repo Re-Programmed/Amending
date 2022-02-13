@@ -42,6 +42,17 @@ namespace Cards
 
         private void Update()
         {
+            if (card is IAmendment)
+            {
+                if (TurnManager.moves != 0)
+                {
+                    CardSP.color = Color.gray;
+                }
+                else{
+                    CardSP.color = Color.white;
+                }
+            }
+
             if (hovered)
             {
                 hovered = HoverDisplay.hoveredCard == this;
@@ -56,11 +67,14 @@ namespace Cards
                     {
                         if (card is IAttackCard)
                         {
+                            TurnManager.INSTANCE.LastCardWasEnemy = false;
                             IAttackCard attkcard = card as IAttackCard;
 
                             attkcard.Attack();
 
                             TurnManager.PlayerMove(card);
+
+                            Destroy(gameObject);
                         }
 
                         if(card is IAmendment)
@@ -69,8 +83,14 @@ namespace Cards
 
                             if(TurnManager.moves == 0)
                             {
-                                HealthManager.AttackEnemy(amendment.GetPowerForCard(TurnManager.LastCardPlayed));
-                                TurnManager.PlayerMove(card);
+                                if(TurnManager.INSTANCE.LastCardWasEnemy)
+                                {
+                                    TurnManager.INSTANCE.LastCardWasEnemy = false;
+                                    HealthManager.AttackEnemy(amendment.GetPowerForCard(TurnManager.LastCardPlayed));
+                                    TurnManager.PlayerMove(card);
+
+                                    Destroy(gameObject);
+                                }
                             }
                         }
                     }

@@ -54,3 +54,7 @@ MonoBehaviour:
         text: Oh! You can't ask me questions about what I did because of the 1st Amendment!
         playerEmotion: point_paper
         enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: (I don't know what I was thinking there...)
+        playerEmotion: idle
+        enemyEmotion: idle

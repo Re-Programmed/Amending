@@ -1,11 +1,19 @@
 ﻿using Cards;
 using Enemy;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class TurnManager : MonoBehaviour
 {
+    [SerializeField]
+    TextMeshPro movescount;
+    int movescounti = 0;
+
+
     [SerializeField]
     CameraController cameraController;
 
@@ -24,6 +32,8 @@ public class TurnManager : MonoBehaviour
     public static TurnManager INSTANCE;
 
     public SpeechBubble player_sb;
+
+    public bool LastCardWasEnemy;
 
     [SerializeField]
     private CurrentTurnDisplay display;
@@ -60,6 +70,41 @@ public class TurnManager : MonoBehaviour
                 INSTANCE.StartCoroutine(INSTANCE.StartRetaliation());
             }
         }
+    }
+
+    internal static void EnemyDrawCard(DialogueSequence ds)
+    {
+        moves++;
+
+        INSTANCE.player_sb.statusChanged += EndDrawEnemy;
+
+        INSTANCE.player_sb.Say(ds);
+    }
+
+    public static void EndDrawEnemy(bool on)
+    {
+        if(!on)
+        {
+            if(moves == 2)
+            {
+                INSTANCE.player_sb.statusChanged -= EndDrawEnemy;
+                INSTANCE.StartCoroutine(INSTANCE.EndEnemyDraw());
+            }
+            else
+            {
+                INSTANCE.StartEnemyPlay();
+            }
+            
+            INSTANCE.player_sb.statusChanged -= EndDrawEnemy;
+        }
+    }
+
+    public IEnumerator EndEnemyDraw()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isPlayersTurn = true;
+        INSTANCE.cdm.FadeUpBG();
+        moves = 0;
     }
 
     public IEnumerator StartRetaliation()
@@ -109,8 +154,47 @@ public class TurnManager : MonoBehaviour
         INSTANCE.player_sb.statusChanged -= ContinuePPlay;
     }
 
+    public static void PlayerMoveDrawCard(DialogueSequence ds)
+    {
+        moves++;
+
+        INSTANCE.player_sb.statusChanged += EndDialogueDraw;
+
+        INSTANCE.player_sb.Say(ds);
+
+        isPlayersTurn = false;
+        INSTANCE.cdm.FadeAwayBG();
+    }
+
+    public static void EndDialogueDraw(bool on)
+    {
+        if (!on)
+        {
+            INSTANCE.movescounti++;
+            INSTANCE.movescount.text = "Moves: " + INSTANCE.movescounti;
+
+            if (moves == 2)
+            {
+                INSTANCE.display.GoToEnemy();
+                INSTANCE.cdm.FadeAwayBG();
+                isPlayersTurn = false;
+                moves = 0;
+                INSTANCE.StartEnemyPlay();
+                INSTANCE.cameraController.DefaultShot();
+                INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
+                return;
+            }
+
+            INSTANCE.cdm.FadeUpBG();
+            isPlayersTurn = true;
+            INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
+        }
+    }
+
     public static void PlayerMove(Card card)
     {
+        INSTANCE.movescounti++;
+        INSTANCE.movescount.text = "Moves: " + INSTANCE.movescounti;
         Card lp = LastCardPlayed;
         LastCardPlayed = card;
         moves++;
@@ -143,17 +227,32 @@ public class TurnManager : MonoBehaviour
 
     public IEnumerator EnemyPlay()
     {
-        yield return new WaitForSeconds(Random.Range(1f, 2f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
         EnemyAI.PlayTopCard();
     }
 
     public static void EnemyMove(Card card)
     {
+        Card lc = LastCardPlayed;
         LastCardPlayed = card;
         moves++;
 
             INSTANCE.cameraController.EnemyActionShot();
+        if(card is IAmendment)
+        {
+            foreach(AmendmentDefenses d in ((IAmendment)card).GetDefensePowers())
+            {
+                if(lc.Title == d.GetCard().Title)
+                {
+                    INSTANCE.player_sb.Say(d.dialogue, true);
+                    break;
+                }
+            }
+        }
+        else
+        {
             INSTANCE.player_sb.Say(card.dialogue, true);
+        }
 
             INSTANCE.player_sb.statusChanged += EnemyRetal;
         

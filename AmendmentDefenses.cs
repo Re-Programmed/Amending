@@ -17,6 +17,18 @@ namespace Cards
         [SerializeField]
         public DialogueSequence dialogue;
 
+        public AmendmentDefenses()
+        {
+
+        }
+
+        public AmendmentDefenses(Card card, int power, DialogueSequence dialogue)
+        {
+            this.card = card;
+            this.power = power;
+            this.dialogue = dialogue;
+        }
+
         public Card GetCard()
         {
             return card;
