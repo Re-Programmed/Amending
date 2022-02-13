@@ -14,6 +14,9 @@ namespace Cards
         [SerializeField]
         private int power;
 
+        [SerializeField]
+        public DialogueSequence dialogue;
+
         public Card GetCard()
         {
             return card;

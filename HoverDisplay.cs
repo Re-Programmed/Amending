@@ -12,7 +12,7 @@ public class HoverDisplay : MonoBehaviour
     private TextMeshPro Title, Desc1, Desc2;
 
     [SerializeField]
-    private GameObject children;
+    public GameObject children;
 
     private Vector2 location;
 

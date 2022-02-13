@@ -6,33 +6,99 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    [SerializeField]
+    public CardDeckManager cdm;
+
     static bool isPlayersTurn = true;
 
     public static int moves { get; private set; } = 0;
 
     public static Card LastCardPlayed;
 
+    public static TurnManager INSTANCE;
+
+    public SpeechBubble player_sb;
+
+    [SerializeField]
+    private CurrentTurnDisplay display;
+
+    public void Awake()
+    {
+        if (INSTANCE != null) { Destroy(this); return; }
+        INSTANCE = this;
+    }
+
+    private void Start()
+    {
+        display.GoToPlayer();
+    }
+
     public static bool GetIsPlayersTurn()
     {
         return isPlayersTurn;
     }
 
-    public static void PlayerMove(Card card)
+    public static void ContinuePPlay(bool on)
     {
-        LastCardPlayed = card;
-        moves++;
-
-        if(moves == 2)
+        if(!on)
         {
-            isPlayersTurn = false;
-            moves = 0;
-            EnemyAI.PlayTopCard();
+            INSTANCE.StartCoroutine(INSTANCE.ContPPlay());
         }
     }
 
-    public static IEnumerator EnemyPlay()
+    public IEnumerator ContPPlay()
     {
-        yield return new WaitForSeconds(1f);
+        Debug.Log("PlayerMoveSTATUS");
+        INSTANCE.cdm.FadeUpBG();
+        if (moves == 2)
+        {
+            INSTANCE.display.GoToEnemy();
+            INSTANCE.cdm.FadeAwayBG();
+            isPlayersTurn = false;
+            moves = 0;
+            INSTANCE.StartEnemyPlay();
+            INSTANCE.player_sb.statusChanged -= ContinuePPlay;
+            yield break;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        isPlayersTurn = true;
+        INSTANCE.player_sb.statusChanged -= ContinuePPlay;
+    }
+
+    public static void PlayerMove(Card card)
+    {
+        Card lp = LastCardPlayed;
+        LastCardPlayed = card;
+        moves++;
+
+        isPlayersTurn = false;
+        HoverDisplay.INSTANCE.children.SetActive(false);
+        HoverDisplay.INSTANCE.GetComponent<SpriteRenderer>().enabled = false;
+
+        INSTANCE.cdm.FadeAwayBG();
+        INSTANCE.player_sb.statusChanged += ContinuePPlay;
+
+        if(card is Amendment)
+        {
+            INSTANCE.player_sb.Say(((Amendment)card).GetDialogue(lp));
+        }
+        else
+        {
+            INSTANCE.player_sb.Say(card.dialogue);
+        }
+    }
+
+    public void StartEnemyPlay()
+    {
+        HoverDisplay.INSTANCE.children.SetActive(false);
+        HoverDisplay.INSTANCE.GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine(EnemyPlay());
+    }
+
+    public IEnumerator EnemyPlay()
+    {
+        yield return new WaitForSeconds(Random.Range(1f, 2f));
         EnemyAI.PlayTopCard();
     }
 
@@ -43,12 +109,14 @@ public class TurnManager : MonoBehaviour
 
         if(moves == 2)
         {
+            INSTANCE.display.GoToPlayer();
+            INSTANCE.cdm.FadeUpBG();
             isPlayersTurn = true;
             moves = 0;
         }
         else
         {
-            EnemyAI.PlayTopCard();
+            INSTANCE.StartEnemyPlay();
         }
     }
 }

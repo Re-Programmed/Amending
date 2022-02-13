@@ -26,5 +26,20 @@ namespace Cards
 
             return 0;
         }
+
+        public DialogueSequence GetDialogue(Card lastCard)
+        {
+            foreach (AmendmentDefenses d in defenses)
+            {
+                if (d.GetCard().Title == lastCard.Title)
+                {
+                    return d.dialogue;
+                }
+            }
+
+            DialogueSequence ds = new DialogueSequence();
+            ds.dialogues.Add(new Dialogue(Dialogue.Saying.Player, "Take this!"));
+            return ds;
+        }
     }
 }

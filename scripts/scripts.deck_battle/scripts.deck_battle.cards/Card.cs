@@ -9,5 +9,7 @@ namespace Cards
         public string Title;
         [TextArea(2, 4)]
         public string Desc;
+
+        public DialogueSequence dialogue;
     }
 }
