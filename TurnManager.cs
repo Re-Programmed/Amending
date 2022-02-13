@@ -7,6 +7,9 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     [SerializeField]
+    CameraController cameraController;
+
+    [SerializeField]
     public CardDeckManager cdm;
 
     static bool isPlayersTurn = true;
@@ -42,13 +45,37 @@ public class TurnManager : MonoBehaviour
     {
         if(!on)
         {
+            if(LastCardPlayed.retaliation.dialogues.Count == 0)
+            {
+                FinishRetaliation(false);
+            }
+            else
+            {
+                INSTANCE.player_sb.statusChanged -= ContinuePPlay;
+                INSTANCE.player_sb.statusChanged += FinishRetaliation;
+                INSTANCE.cameraController.EnemyActionShot();
+                INSTANCE.StartCoroutine(INSTANCE.StartRetaliation());
+            }
+        }
+    }
+
+    public IEnumerator StartRetaliation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        player_sb.Say(LastCardPlayed.retaliation);
+    }
+
+    public static void FinishRetaliation(bool on)
+    {
+        if(!on)
+        {
+            INSTANCE.player_sb.statusChanged -= FinishRetaliation;
             INSTANCE.StartCoroutine(INSTANCE.ContPPlay());
         }
     }
 
     public IEnumerator ContPPlay()
     {
-        Debug.Log("PlayerMoveSTATUS");
         INSTANCE.cdm.FadeUpBG();
         if (moves == 2)
         {
@@ -57,9 +84,11 @@ public class TurnManager : MonoBehaviour
             isPlayersTurn = false;
             moves = 0;
             INSTANCE.StartEnemyPlay();
+            cameraController.DefaultShot();
             INSTANCE.player_sb.statusChanged -= ContinuePPlay;
             yield break;
         }
+        cameraController.DefaultShot();
 
         yield return new WaitForSeconds(0.5f);
         isPlayersTurn = true;
@@ -78,6 +107,8 @@ public class TurnManager : MonoBehaviour
 
         INSTANCE.cdm.FadeAwayBG();
         INSTANCE.player_sb.statusChanged += ContinuePPlay;
+
+        INSTANCE.cameraController.PlayerActionShot();
 
         if(card is Amendment)
         {

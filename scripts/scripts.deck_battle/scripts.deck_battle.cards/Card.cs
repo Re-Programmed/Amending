@@ -11,5 +11,7 @@ namespace Cards
         public string Desc;
 
         public DialogueSequence dialogue;
+
+        public DialogueSequence retaliation;
     }
 }
