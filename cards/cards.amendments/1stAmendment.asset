@@ -21,6 +21,14 @@ MonoBehaviour:
     dialogues:
     - WhoIsSaying: 0
       text: 
+      playerEmotion: 
+      enemyEmotion: 
+  retaliation:
+    dialogues:
+    - WhoIsSaying: 1
+      text: Gahhh!
+      playerEmotion: idle
+      enemyEmotion: shoudler_block
   defenses:
   - card: {fileID: 11400000, guid: 66fd2697e0813444c92340a5ab56a037, type: 2}
     power: 7
@@ -28,3 +36,21 @@ MonoBehaviour:
       dialogues:
       - WhoIsSaying: 0
         text: You can't use things I said to attack me!
+        playerEmotion: point_paper
+        enemyEmotion: awed
+  - card: {fileID: 11400000, guid: a12cceebef80a874aae641f5945067b5, type: 2}
+    power: 2
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: You can't...
+        playerEmotion: idle
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: Uhhh...
+        playerEmotion: awed
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: Oh! You can't ask me questions about what I did because of the 1st Amendment!
+        playerEmotion: point_paper
+        enemyEmotion: idle

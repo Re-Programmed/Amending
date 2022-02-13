@@ -12,6 +12,9 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     public CardDeckManager cdm;
 
+    [SerializeField]
+    public ComboText comboText;
+
     static bool isPlayersTurn = true;
 
     public static int moves { get; private set; } = 0;
@@ -76,6 +79,17 @@ public class TurnManager : MonoBehaviour
 
     public IEnumerator ContPPlay()
     {
+
+        if (LastCardPlayed is Amendment)
+        {
+            INSTANCE.comboText.DisplayCombo("<color=yellow>Amendment!");
+        }
+        else if (LastCardPlayed is IAttackCard)
+        {
+            INSTANCE.comboText.DisplayCombo("<color=green>+" + ((IAttackCard)LastCardPlayed).GetAttackingPower());
+        }
+
+
         INSTANCE.cdm.FadeUpBG();
         if (moves == 2)
         {
@@ -138,16 +152,72 @@ public class TurnManager : MonoBehaviour
         LastCardPlayed = card;
         moves++;
 
-        if(moves == 2)
+            INSTANCE.cameraController.EnemyActionShot();
+            INSTANCE.player_sb.Say(card.dialogue, true);
+
+            INSTANCE.player_sb.statusChanged += EnemyRetal;
+        
+    }
+
+
+    public static void EnemyRetal(bool on)
+    {
+        if(!on)
         {
-            INSTANCE.display.GoToPlayer();
-            INSTANCE.cdm.FadeUpBG();
-            isPlayersTurn = true;
-            moves = 0;
+            INSTANCE.StartCoroutine(INSTANCE.EnemyRetalWait());
         }
-        else
+    }
+
+    IEnumerator EnemyRetalWait()
+    {
+        INSTANCE.player_sb.statusChanged -= EnemyRetal;
+        INSTANCE.player_sb.statusChanged += EnemyContPlay;
+        INSTANCE.cameraController.PlayerActionShot();
+        yield return new WaitForSeconds(0.2f);
+        player_sb.Say(LastCardPlayed.retaliation, true);
+    }
+
+    public static void EnemyContPlay(bool on)
+    {
+        if(!on)
         {
-            INSTANCE.StartEnemyPlay();
+            INSTANCE.cameraController.DefaultShot();
+            INSTANCE.player_sb.statusChanged -= EnemyContPlay;
+
+            if(LastCardPlayed is Amendment)
+            {
+                INSTANCE.comboText.DisplayCombo("<color=yellow>Amendment!");
+            }
+            else if(LastCardPlayed is IAttackCard)
+            {
+                if(isPlayersTurn)
+                {
+                    INSTANCE.comboText.DisplayCombo("<color=green>+"+((IAttackCard)LastCardPlayed).GetAttackingPower());
+                }
+                else {
+                    INSTANCE.comboText.DisplayCombo("<color=red>-" + ((IAttackCard)LastCardPlayed).GetAttackingPower());
+                }
+            }
+
+
+            if (moves == 2)
+            {
+                INSTANCE.StartCoroutine(INSTANCE.WaitToSwitch());
+            }
+            else
+            {
+                INSTANCE.StartEnemyPlay();
+            }
+
         }
+    }
+
+    IEnumerator WaitToSwitch()
+    {
+        yield return new WaitForSeconds(0.3f);
+        INSTANCE.display.GoToPlayer();
+        INSTANCE.cdm.FadeUpBG();
+        isPlayersTurn = true;
+        moves = 0;
     }
 }

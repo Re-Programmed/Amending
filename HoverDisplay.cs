@@ -39,6 +39,7 @@ public class HoverDisplay : MonoBehaviour
 
     public static void HoverAt(Vector2 location, string title, string description1, string description2, InventoryCard c = null)
     {
+        if (!TurnManager.GetIsPlayersTurn()) { return; }
         INSTANCE.children.SetActive(true);
         INSTANCE.GetComponent<SpriteRenderer>().enabled = true;
 

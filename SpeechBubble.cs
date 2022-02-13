@@ -11,6 +11,14 @@ public class SpeechBubble : MonoBehaviour
     [SerializeField]
     GameObject BG;
 
+    [SerializeField]
+    SpriteRenderer Player;
+    [SerializeField]
+    SpriteRenderer Enemy;
+
+    [SerializeField]
+    Sprite defaultPEmotion, defaultEEmotion;
+
     bool open = false;
 
     public delegate void StatusChanged(bool on);
@@ -20,11 +28,28 @@ public class SpeechBubble : MonoBehaviour
 
     int cooldown = 0;
 
-    public void Say(DialogueSequence ds)
+    bool reverse = false;
+
+    public void Say(DialogueSequence ds, bool rev = false)
     {
+        this.reverse = rev;
         this.ds = ds;
         ds.SetI(0);
-        this.text.text = ds.GetNextDialogue().text;
+
+        Dialogue cd = ds.GetNextDialogue();
+
+        this.text.text = cd.text;
+
+        if(!reverse)
+        {
+            EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.playerEmotion, EmotionDatabase.INSTANCE.PlayerSprite, Player);
+            EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.enemyEmotion, EmotionDatabase.INSTANCE.EnemySprite, Enemy);
+        }
+        else
+        {
+            EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.playerEmotion, EmotionDatabase.INSTANCE.EnemySprite, Enemy);
+            EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.enemyEmotion, EmotionDatabase.INSTANCE.PlayerSprite, Player);
+        }
 
         this.text.gameObject.SetActive(true);
 
@@ -53,10 +78,23 @@ public class SpeechBubble : MonoBehaviour
                     statusChanged?.Invoke(false);
                     BG.SetActive(false);
                     open = false;
+                    Player.sprite = defaultPEmotion;
+                    Enemy.sprite = defaultEEmotion;
                 }
                 else
                 {
                     this.text.text = d.text;
+
+                    if (!reverse)
+                    {
+                        EmotionDatabase.INSTANCE.SetCharacterEmotion(d.playerEmotion, EmotionDatabase.INSTANCE.PlayerSprite, Player);
+                        EmotionDatabase.INSTANCE.SetCharacterEmotion(d.enemyEmotion, EmotionDatabase.INSTANCE.EnemySprite, Enemy);
+                    }
+                    else
+                    {
+                        EmotionDatabase.INSTANCE.SetCharacterEmotion(d.playerEmotion, EmotionDatabase.INSTANCE.EnemySprite, Enemy);
+                        EmotionDatabase.INSTANCE.SetCharacterEmotion(d.enemyEmotion, EmotionDatabase.INSTANCE.PlayerSprite, Player);
+                    }
 
                     this.text.gameObject.SetActive(true);
                     BG.SetActive(true);

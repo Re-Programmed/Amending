@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6864bc2c409dac4187777f7207ab69e, type: 3}
-  m_Name: ShameCard1
+  m_Name: QuestionPursuit
   m_EditorClassIdentifier: 
-  Title: Press Shame
-  Desc: Use news articles mentioning the opponent to shame them. A great verbal attack.
+  Title: Question Pursuit
+  Desc: Ask the opponent questions that might reveal things from their past.
   dialogue:
     dialogues:
     - WhoIsSaying: 0
-      text: This news article proves you are against <issue>!!!
-      playerEmotion: hold_paper
-      enemyEmotion: idle
-    - WhoIsSaying: 0
-      text: Take That!
-      playerEmotion: idle
+      text: Can I ask you what exactly you were doing yesterday?
+      playerEmotion: shrug
       enemyEmotion: idle
   retaliation:
     dialogues:
-    - WhoIsSaying: 0
-      text: Aghh!
-      playerEmotion: awed
+    - WhoIsSaying: 1
+      text: Gahh!
+      playerEmotion: shrug
+      enemyEmotion: shoudler_block
+    - WhoIsSaying: 1
+      text: I don't remember!
+      playerEmotion: idle
       enemyEmotion: awed
-  AttkPower: 5
+  AttkPower: 8

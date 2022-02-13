@@ -51,4 +51,7 @@ public class Dialogue
     public Saying WhoIsSaying;
 
     public string text;
+
+    public string playerEmotion;
+    public string enemyEmotion;
 }
