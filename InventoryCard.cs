@@ -11,13 +11,13 @@ namespace Cards
         [SerializeField]
         protected TextMeshPro PowerLevelDisplay;
         [SerializeField]
-        protected SpriteRenderer Overlay;
+        public SpriteRenderer Overlay;
         [SerializeField]
-        protected SpriteRenderer CardSP;
+        public SpriteRenderer CardSP;
 
         [Header("Card")]
         [SerializeField]
-        protected Card card;
+        public Card card;
 
         [Header("Hover Data")]
         [SerializeField]

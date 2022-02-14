@@ -79,6 +79,8 @@ public class TurnManager : MonoBehaviour
         INSTANCE.player_sb.statusChanged += EndDrawEnemy;
 
         INSTANCE.player_sb.Say(ds);
+
+        Debug.Log("Drew");
     }
 
     public static void EndDrawEnemy(bool on)
@@ -89,12 +91,10 @@ public class TurnManager : MonoBehaviour
             {
                 INSTANCE.player_sb.statusChanged -= EndDrawEnemy;
                 INSTANCE.StartCoroutine(INSTANCE.EndEnemyDraw());
+                return;
             }
-            else
-            {
-                INSTANCE.StartEnemyPlay();
-            }
-            
+            INSTANCE.StartEnemyPlay();
+
             INSTANCE.player_sb.statusChanged -= EndDrawEnemy;
         }
     }
@@ -170,25 +170,31 @@ public class TurnManager : MonoBehaviour
     {
         if (!on)
         {
-            INSTANCE.movescounti++;
-            INSTANCE.movescount.text = "Moves: " + INSTANCE.movescounti;
-
-            if (moves == 2)
-            {
-                INSTANCE.display.GoToEnemy();
-                INSTANCE.cdm.FadeAwayBG();
-                isPlayersTurn = false;
-                moves = 0;
-                INSTANCE.StartEnemyPlay();
-                INSTANCE.cameraController.DefaultShot();
-                INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
-                return;
-            }
-
-            INSTANCE.cdm.FadeUpBG();
-            isPlayersTurn = true;
-            INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
+            INSTANCE.StartCoroutine(INSTANCE.EndDialogueWait());
         }
+    }
+
+    IEnumerator EndDialogueWait()
+    {
+        yield return new WaitForSeconds(0.3f);
+        INSTANCE.movescounti++;
+        INSTANCE.movescount.text = "Moves: " + INSTANCE.movescounti;
+
+        if (moves == 2)
+        {
+            INSTANCE.display.GoToEnemy();
+            INSTANCE.cdm.FadeAwayBG();
+            isPlayersTurn = false;
+            moves = 0;
+            INSTANCE.StartEnemyPlay();
+            INSTANCE.cameraController.DefaultShot();
+            INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
+            yield break;
+        }
+
+        INSTANCE.cdm.FadeUpBG();
+        isPlayersTurn = true;
+        INSTANCE.player_sb.statusChanged -= EndDialogueDraw;
     }
 
     public static void PlayerMove(Card card)
@@ -220,9 +226,9 @@ public class TurnManager : MonoBehaviour
 
     public void StartEnemyPlay()
     {
+        StartCoroutine(EnemyPlay());
         HoverDisplay.INSTANCE.children.SetActive(false);
         HoverDisplay.INSTANCE.GetComponent<SpriteRenderer>().enabled = false;
-        StartCoroutine(EnemyPlay());
     }
 
     public IEnumerator EnemyPlay()
@@ -240,14 +246,27 @@ public class TurnManager : MonoBehaviour
             INSTANCE.cameraController.EnemyActionShot();
         if(card is IAmendment)
         {
-            foreach(AmendmentDefenses d in ((IAmendment)card).GetDefensePowers())
+            if(card is ninthamendment)
             {
-                if(lc.Title == d.GetCard().Title)
+                INSTANCE.player_sb.Say(card.dialogue, true);
+                INSTANCE.player_sb.statusChanged += EnemyRetal;
+                return;
+            }
+            else
+            {
+                foreach (AmendmentDefenses d in ((IAmendment)card).GetDefensePowers())
                 {
-                    INSTANCE.player_sb.Say(d.dialogue, true);
-                    break;
+                    if (lc != null && d.GetCard() != null)
+                    {
+                        if (lc.Title == d.GetCard().Title)
+                        {
+                            INSTANCE.player_sb.Say(d.dialogue, true);
+                            break;
+                        }
+                    }
                 }
             }
+          
         }
         else
         {
@@ -302,11 +321,9 @@ public class TurnManager : MonoBehaviour
             if (moves == 2)
             {
                 INSTANCE.StartCoroutine(INSTANCE.WaitToSwitch());
+                return;
             }
-            else
-            {
-                INSTANCE.StartEnemyPlay();
-            }
+            INSTANCE.StartEnemyPlay();
 
         }
     }

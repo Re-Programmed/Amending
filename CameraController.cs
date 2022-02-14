@@ -37,7 +37,6 @@ public class CameraController : MonoBehaviour
 
         Vector3 tg = new Vector3((1.0f / 5.0f) * targetZoom * 0.8f, (1.0f / 5.0f) * targetZoom * 0.8f, 1f);
         
-        Debug.Log(tg);
         foreach (GameObject o in scaleWith)
         {
             o.transform.localScale = Vector3.Lerp(o.transform.localScale, tg, Time.deltaTime * 10f);

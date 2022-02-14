@@ -45,14 +45,34 @@ namespace Enemy
 
         public static void PlayTopCard()
         {
+            Debug.Log("called" + Random.Range(0, 10000));
+            foreach(Card c in INSTANCE.cards)
+            {
+                if(c is ninthamendment)
+                {
+                    HealthManager.AttackPlayer(20);
+
+                    INSTANCE.cards.Remove(c);
+
+                    ((ninthamendment)c).GetPowerForCard(TurnManager.LastCardPlayed);
+
+                    TurnManager.EnemyMove(c);
+                    return;
+                }
+            }
+
+            Debug.Log("BOTTOM!!! ogposdigo");
+
             TurnManager.INSTANCE.LastCardWasEnemy = true;
             if(INSTANCE.cards.Count < 2)
             {
                 DrawCard();
                 return;
-            } 
+            }
 
-            if(TurnManager.LastCardPlayed != null && TurnManager.LastCardPlayed is AttackCard && TurnManager.moves == 0 && Random.Range(0, 100) < 55)
+            Debug.Log("BOTTOM!!! qyoqibpoe");
+
+            if (TurnManager.LastCardPlayed != null && TurnManager.LastCardPlayed is AttackCard && TurnManager.moves == 0 && Random.Range(0, 100) < 55)
             {
                 Card currentWinner = null;
                 int val = 0;
@@ -82,9 +102,9 @@ namespace Enemy
                         {
                             HealthManager.AttackPlayer(((IAmendment)currentWinner).GetPowerForCard(TurnManager.LastCardPlayed));
 
-                            INSTANCE.cards.Remove(currentWinner);
-
                             TurnManager.EnemyMove(currentWinner);
+
+                            INSTANCE.cards.Remove(currentWinner);
                             return;
                         }
                     }
@@ -92,13 +112,15 @@ namespace Enemy
                     {
                         HealthManager.AttackPlayer(((IAmendment)currentWinner).GetPowerForCard(TurnManager.LastCardPlayed));
 
-                        INSTANCE.cards.Remove(currentWinner);
-
                         TurnManager.EnemyMove(currentWinner);
+
+                        INSTANCE.cards.Remove(currentWinner);
                         return;
                     }
                 }
             }
+
+            Debug.Log("BOTTOM!!! qwtwet");
 
             if (INSTANCE.cards.Count < 5)
             {
@@ -109,17 +131,21 @@ namespace Enemy
                 }
             }
 
+            Debug.Log("BOTTOM!!! abecd");
+
             if (INSTANCE.cards[0] is IAttackCard)
             {
                 IAttackCard attkcard = INSTANCE.cards[0] as IAttackCard;
 
                 HealthManager.AttackPlayer(attkcard.GetAttackingPower());
 
-                INSTANCE.cards.Remove(INSTANCE.cards[0]);
-
                 TurnManager.EnemyMove(INSTANCE.cards[0]);
+
+                INSTANCE.cards.Remove(INSTANCE.cards[0]);
                 return;
             }
+
+            Debug.Log("BOTTOM!!!");
 
             DrawCard();
 

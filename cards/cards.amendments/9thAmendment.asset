@@ -25,4 +25,8 @@ MonoBehaviour:
       playerEmotion: shrug
       enemyEmotion: awed
   retaliation:
-    dialogues: []
+    dialogues:
+    - WhoIsSaying: 0
+      text: Gahh!
+      playerEmotion: awed
+      enemyEmotion: awed

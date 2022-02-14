@@ -16,7 +16,6 @@ public class DialogueSequence
 
     public Dialogue GetNextDialogue()
     {
-        Debug.Log("Next Dialogue: " + i);
         i++;
         if(i - 1 >= dialogues.Count)
         {

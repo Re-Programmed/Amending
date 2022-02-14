@@ -58,3 +58,24 @@ MonoBehaviour:
         text: (I don't know what I was thinking there...)
         playerEmotion: idle
         enemyEmotion: idle
+  - card: {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
+    power: 2
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: You can't...
+        playerEmotion: idle
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: Uhhh...
+        playerEmotion: awed
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: Oh! You can't ask me questions about my opinions because of the 1st
+          Amendment!
+        playerEmotion: point_paper
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: (I don't know what I was thinking there...)
+        playerEmotion: idle
+        enemyEmotion: idle
