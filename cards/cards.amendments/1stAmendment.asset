@@ -35,7 +35,7 @@ MonoBehaviour:
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: You can't use things I said to attack me!
+        text: You can't use things I said to attack me! <color=green>(+7)
         playerEmotion: point_paper
         enemyEmotion: awed
   - card: {fileID: 11400000, guid: a12cceebef80a874aae641f5945067b5, type: 2}
@@ -52,6 +52,7 @@ MonoBehaviour:
         enemyEmotion: idle
       - WhoIsSaying: 0
         text: Oh! You can't ask me questions about what I did because of the 1st Amendment!
+          <color=green>(+4)
         playerEmotion: point_paper
         enemyEmotion: idle
       - WhoIsSaying: 0
@@ -72,7 +73,7 @@ MonoBehaviour:
         enemyEmotion: idle
       - WhoIsSaying: 0
         text: Oh! You can't ask me questions about my opinions because of the 1st
-          Amendment!
+          Amendment! <color=green>(+4)
         playerEmotion: point_paper
         enemyEmotion: idle
       - WhoIsSaying: 0

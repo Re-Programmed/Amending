@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c978cd388ad52c6438d4342b538da29d, type: 3}
+  m_Name: 2ndAmendment
+  m_EditorClassIdentifier: 
+  Title: 2nd Amendment
+  Desc: Right to bear arms.
+  dialogue:
+    dialogues:
+    - WhoIsSaying: 0
+      text: 
+      playerEmotion: 
+      enemyEmotion: 
+  retaliation:
+    dialogues:
+    - WhoIsSaying: 1
+      text: Ouch! I'm so confused!
+      playerEmotion: idle
+      enemyEmotion: discombobulated
+  defenses:
+  - card: {fileID: 11400000, guid: b21875a2e2472724892b79f26a9a97fc, type: 2}
+    power: 25
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: I can carry firearms!
+        playerEmotion: hand
+        enemyEmotion: idle
+      - WhoIsSaying: 0
+        text: It's right here, maybe you didn't check the FOOTNOTES! <color=green>(+25)
+        playerEmotion: hold_paper
+        enemyEmotion: awed

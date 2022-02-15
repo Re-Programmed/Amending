@@ -33,7 +33,7 @@ MonoBehaviour:
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th.
+        text: I plead the 5th. <color=green>(+15)
         playerEmotion: hand
         enemyEmotion: awed
   - card: {fileID: 11400000, guid: 66fd2697e0813444c92340a5ab56a037, type: 2}
@@ -41,7 +41,7 @@ MonoBehaviour:
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th.
+        text: I plead the 5th. <color=green>(+5)
         playerEmotion: hand
         enemyEmotion: awed
       - WhoIsSaying: 0
@@ -53,6 +53,6 @@ MonoBehaviour:
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th.
+        text: I plead the 5th. <color=green>(+15)
         playerEmotion: hand
         enemyEmotion: awed

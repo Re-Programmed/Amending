@@ -21,7 +21,7 @@ MonoBehaviour:
       playerEmotion: point_paper
       enemyEmotion: awed
     - WhoIsSaying: 0
-      text: And, there is nothing you can do about that!
+      text: And, there is nothing you can do about that! <color=green>(+20)
       playerEmotion: shrug
       enemyEmotion: awed
   retaliation:
