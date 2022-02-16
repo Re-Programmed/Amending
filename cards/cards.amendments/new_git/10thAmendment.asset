@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c978cd388ad52c6438d4342b538da29d, type: 3}
+  m_Name: 10thAmendment
+  m_EditorClassIdentifier: 
+  Title: 10th Amendment
+  Desc: The Federal Government only has those powers delegated in the Constitution. If it isn't listed, it belongs to the states or to the people. (Card only works in state scenarios).
+  dialogue:
+    dialogues:
+    - WhoIsSaying: 0
+      text: 
+      playerEmotion: 
+      enemyEmotion: 
+  retaliation:
+    dialogues:
+    - WhoIsSaying: 1
+      text: Of course!
+      playerEmotion: hand
+      enemyEmotion: hand
+  defenses:
