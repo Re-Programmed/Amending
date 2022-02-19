@@ -13,5 +13,8 @@ namespace Cards
         public DialogueSequence dialogue;
 
         public DialogueSequence retaliation;
+
+        public StageType boostedStage;
+        public int boostedPower;
     }
 }

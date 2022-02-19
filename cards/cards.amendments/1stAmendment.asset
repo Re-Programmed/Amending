@@ -23,12 +23,16 @@ MonoBehaviour:
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Gahhh!
       playerEmotion: idle
       enemyEmotion: shoudler_block
+      actionShot: 1
+  boostedStage: 0
+  boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: 66fd2697e0813444c92340a5ab56a037, type: 2}
     power: 7
@@ -38,6 +42,7 @@ MonoBehaviour:
         text: You can't use things I said to attack me! <color=green>(+7)
         playerEmotion: point_paper
         enemyEmotion: awed
+        actionShot: 1
   - card: {fileID: 11400000, guid: a12cceebef80a874aae641f5945067b5, type: 2}
     power: 2
     dialogue:
@@ -46,19 +51,23 @@ MonoBehaviour:
         text: You can't...
         playerEmotion: idle
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: Uhhh...
         playerEmotion: awed
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: Oh! You can't ask me questions about what I did because of the 1st Amendment!
           <color=green>(+4)
         playerEmotion: point_paper
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: (I don't know what I was thinking there...)
         playerEmotion: idle
         enemyEmotion: idle
+        actionShot: 0
   - card: {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
     power: 2
     dialogue:
@@ -67,16 +76,20 @@ MonoBehaviour:
         text: You can't...
         playerEmotion: idle
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: Uhhh...
         playerEmotion: awed
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: Oh! You can't ask me questions about my opinions because of the 1st
           Amendment! <color=green>(+4)
         playerEmotion: point_paper
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: (I don't know what I was thinking there...)
         playerEmotion: idle
         enemyEmotion: idle
+        actionShot: 0

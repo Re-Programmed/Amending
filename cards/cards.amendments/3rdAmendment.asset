@@ -42,5 +42,5 @@ MonoBehaviour:
       - WhoIsSaying: 0
         text: 'It''s right here! Amendment #3! Read the Bill of Rights, pretty boy.
           <color=green>(+14)'
-        playerEmotion: point_paper
+        playerEmotion: smug
         enemyEmotion: awed

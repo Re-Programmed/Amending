@@ -14,10 +14,13 @@ public class SpeechBubble : MonoBehaviour
     [SerializeField]
     SpriteRenderer Player;
     [SerializeField]
-    SpriteRenderer Enemy;
+    public SpriteRenderer Enemy;
 
     [SerializeField]
-    Sprite defaultPEmotion, defaultEEmotion;
+    public Animator ActionShot;
+
+    [SerializeField]
+    public Sprite defaultPEmotion, defaultEEmotion;
 
     bool open = false;
 
@@ -40,7 +43,9 @@ public class SpeechBubble : MonoBehaviour
 
         this.text.text = cd.text;
 
-        if(!reverse)
+        ActionShot.SetBool("ActionShot", cd.actionShot);
+
+        if (!reverse)
         {
             EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.playerEmotion, EmotionDatabase.INSTANCE.PlayerSprite, Player);
             EmotionDatabase.INSTANCE.SetCharacterEmotion(cd.enemyEmotion, EmotionDatabase.INSTANCE.EnemySprite, Enemy);
@@ -80,10 +85,13 @@ public class SpeechBubble : MonoBehaviour
                     open = false;
                     Player.sprite = defaultPEmotion;
                     Enemy.sprite = defaultEEmotion;
+                    ActionShot.SetBool("ActionShot", false);
                 }
                 else
                 {
                     this.text.text = d.text;
+
+                    ActionShot.SetBool("ActionShot", d.actionShot);
 
                     if (!reverse)
                     {

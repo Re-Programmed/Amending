@@ -38,6 +38,10 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     private CurrentTurnDisplay display;
 
+    [SerializeField]
+    private StageType currentstage;
+    public static StageType GetCurrentStageType() { return INSTANCE.currentstage; }
+
     public void Awake()
     {
         if (INSTANCE != null) { Destroy(this); return; }
@@ -336,4 +340,12 @@ public class TurnManager : MonoBehaviour
         isPlayersTurn = true;
         moves = 0;
     }
+}
+
+public enum StageType
+{
+    Street,
+    Court,
+    State,
+    Debate
 }

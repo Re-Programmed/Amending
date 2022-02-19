@@ -53,4 +53,6 @@ public class Dialogue
 
     public string playerEmotion;
     public string enemyEmotion;
+
+    public bool actionShot;
 }

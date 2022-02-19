@@ -20,13 +20,18 @@ MonoBehaviour:
       text: The 9th Amendment gives me human rights!
       playerEmotion: point_paper
       enemyEmotion: awed
+      actionShot: 1
     - WhoIsSaying: 0
       text: And, there is nothing you can do about that! <color=green>(+20)
       playerEmotion: shrug
       enemyEmotion: awed
+      actionShot: 1
   retaliation:
     dialogues:
     - WhoIsSaying: 0
       text: Gahh!
       playerEmotion: awed
       enemyEmotion: awed
+      actionShot: 1
+  boostedStage: 0
+  boostedPower: 0

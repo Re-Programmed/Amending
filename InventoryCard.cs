@@ -86,7 +86,12 @@ namespace Cards
                                 if(TurnManager.INSTANCE.LastCardWasEnemy)
                                 {
                                     TurnManager.INSTANCE.LastCardWasEnemy = false;
-                                    HealthManager.AttackEnemy(amendment.GetPowerForCard(TurnManager.LastCardPlayed));
+                                    int dmg = amendment.GetPowerForCard(TurnManager.LastCardPlayed);
+                                    if (card.boostedStage == TurnManager.GetCurrentStageType())
+                                    {
+                                        dmg += card.boostedPower;
+                                    }
+                                    HealthManager.AttackEnemy(dmg);
                                     TurnManager.PlayerMove(card);
 
                                     Destroy(gameObject);
