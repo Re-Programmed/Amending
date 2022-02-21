@@ -4273,6 +4273,7 @@ MonoBehaviour:
   ActionShot: {fileID: 1636165171}
   defaultPEmotion: {fileID: 21300000, guid: 7dc5ee8450c0a924b8d6b65e9cdb026b, type: 3}
   defaultEEmotion: {fileID: 21300000, guid: 88ecac03190adf343bc6ec2b5ed09617, type: 3}
+  issue: me
 --- !u!1 &1380681859
 GameObject:
   m_ObjectHideFlags: 0
@@ -6048,12 +6049,17 @@ MonoBehaviour:
       playerEmotion: smacked
       enemyEmotion: hand
       actionShot: 1
+    - WhoIsSaying: 0
+      text: Then we will see if you are worthy to enter this town.
+      playerEmotion: smacked
+      enemyEmotion: hand
+      actionShot: 1
   player: {fileID: 1707356106}
   speechBubble: {fileID: 1348625764}
   scenario:
     BattleTopic: Ur Mom
     AvailableCards:
-    - {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
+    - {fileID: 0}
     EnemyCards:
     - {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
 --- !u!1 &2067981869

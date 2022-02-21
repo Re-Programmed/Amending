@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class LoadScenario : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    SpeechBubble sb;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(DataStorage.INSTANCE != null)
+        {
+            sb.issue = DataStorage.INSTANCE.battleScenario.BattleTopic;
+        }
     }
 }

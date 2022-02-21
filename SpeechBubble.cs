@@ -33,6 +33,8 @@ public class SpeechBubble : MonoBehaviour
 
     bool reverse = false;
 
+    public string issue = "me";
+
     public void Say(DialogueSequence ds, bool rev = false)
     {
         this.reverse = rev;
@@ -41,7 +43,7 @@ public class SpeechBubble : MonoBehaviour
 
         Dialogue cd = ds.GetNextDialogue();
 
-        this.text.text = cd.text;
+        this.text.text = cd.text.Replace("<issue>", issue);
 
         ActionShot.SetBool("ActionShot", cd.actionShot);
 
@@ -89,7 +91,7 @@ public class SpeechBubble : MonoBehaviour
                 }
                 else
                 {
-                    this.text.text = d.text;
+                    this.text.text = d.text.Replace("<issue>", issue);
 
                     ActionShot.SetBool("ActionShot", d.actionShot);
 

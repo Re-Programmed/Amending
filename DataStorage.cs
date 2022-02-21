@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static EmotionDatabase;
 
 public class DataStorage : MonoBehaviour
 {
@@ -35,4 +36,6 @@ public class BattleScenario
     public string BattleTopic;
     public GameObject[] AvailableCards;
     public Cards.Card[] EnemyCards;
+
+    public CurrentSprite EnemySprite;
 }
