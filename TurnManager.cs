@@ -299,6 +299,21 @@ public class TurnManager : MonoBehaviour
         player_sb.Say(LastCardPlayed.retaliation, true);
     }
 
+    private void Update()
+    {
+        if(HealthManager.PlayerHealth <= 0)
+        {
+            //Loose
+            GameObject.FindGameObjectWithTag("loose").SetActive(true);
+        }
+
+        if(HealthManager.EnemyHealth <= 0)
+        {
+            //Win
+            GameObject.FindGameObjectWithTag("win").SetActive(true);
+        }
+    }
+
     public static void EnemyContPlay(bool on)
     {
         if(!on)

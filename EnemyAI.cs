@@ -16,7 +16,7 @@ namespace Enemy
         }
 
         [SerializeField]
-        List<Card> cards = new List<Card>();
+        public List<Card> cards = new List<Card>();
 
         [SerializeField]
         Card[] Drawables;

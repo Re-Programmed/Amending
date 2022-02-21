@@ -1725,6 +1725,7 @@ GameObject:
   - component: {fileID: 685185396}
   - component: {fileID: 685185395}
   - component: {fileID: 685185394}
+  - component: {fileID: 685185397}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1799,6 +1800,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685185397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685185393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570a6505c2a2f14b866507445763b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Follow: {fileID: 1707356105}
+  moveDistance: 7
 --- !u!1 &710016501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,6 +2647,7 @@ MonoBehaviour:
     BattleTopic: 
     AvailableCards: []
     EnemyCards: []
+    EnemySprite: 0
 --- !u!4 &823018474
 Transform:
   m_ObjectHideFlags: 0
@@ -5499,9 +5515,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1707356108}
   - component: {fileID: 1707356106}
+  - component: {fileID: 1707356107}
+  - component: {fileID: 1707356109}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5522,6 +5540,32 @@ MonoBehaviour:
   sr: {fileID: 1108305237}
   anim: {fileID: 1108305240}
   locked: 0
+--- !u!61 &1707356107
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707356105}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.7563573, y: -0.73534703}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5127146, y: 7.1769204}
+  m_EdgeRadius: 0
 --- !u!4 &1707356108
 Transform:
   m_ObjectHideFlags: 0
@@ -5530,7 +5574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707356105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9376383, y: 0.28, z: 0}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children:
   - {fileID: 639163025}
@@ -5538,6 +5582,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1707356109
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707356105}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &1732906507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5949,6 +6014,7 @@ GameObject:
   - component: {fileID: 2057769997}
   - component: {fileID: 2057769996}
   - component: {fileID: 2057769998}
+  - component: {fileID: 2057769999}
   m_Layer: 0
   m_Name: CityThug
   m_TagString: Untagged
@@ -6054,14 +6120,51 @@ MonoBehaviour:
       playerEmotion: smacked
       enemyEmotion: hand
       actionShot: 1
+  already_talked:
+    dialogues:
+    - WhoIsSaying: 0
+      text: Ok, I guess you can pass...
+      playerEmotion: idle
+      enemyEmotion: hand
+      actionShot: 0
   player: {fileID: 1707356106}
   speechBubble: {fileID: 1348625764}
   scenario:
     BattleTopic: Ur Mom
     AvailableCards:
-    - {fileID: 0}
+    - {fileID: 9144402816196240835, guid: f3d25cb9a4cbbd349b6f0fb7cfdb9950, type: 3}
+    - {fileID: 3759518244733756652, guid: 92a0be40aa970324e9006b634ffdaebd, type: 3}
+    - {fileID: 6282881008268632916, guid: cf8d15b3b6cf957418d4e24f4f81f58f, type: 3}
     EnemyCards:
     - {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
+    EnemySprite: 0
+  id: 1
+--- !u!61 &2057769999
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057769995}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.0771384, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.666667, y: 10.666667}
+    newSize: {x: 10.666667, y: 10.666667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.512391, y: 10.666667}
+  m_EdgeRadius: 0
 --- !u!1 &2067981869
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,22 @@ public class EmotionDatabase : MonoBehaviour
 
     public Emotion[] emotions;
 
+    public Sprite GetEmotion(string emotionValue, CurrentSprite sprite)
+    {
+        foreach (Emotion e in emotions)
+        {
+            if (emotionValue == e.value)
+            {
+                if (sprite == e.SpriteApply)
+                {
+                    return e.sprite;
+                }
+            }
+        }
+
+        return null;
+    }
+
     public void SetCharacterEmotion(string emotionValue, CurrentSprite sprite, SpriteRenderer spriteRenderer)
     {
         foreach (Emotion e in emotions)

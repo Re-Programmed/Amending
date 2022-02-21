@@ -8,7 +8,7 @@ public class CardPile : MonoBehaviour
     bool hovered = false;
 
     [SerializeField]
-    GameObject[] Cards;
+    public GameObject[] Cards;
 
     [SerializeField]
     GameObject Deck;
