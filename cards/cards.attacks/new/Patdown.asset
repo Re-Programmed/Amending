@@ -20,14 +20,19 @@ MonoBehaviour:
       text: I'm sure you are hiding something!
       playerEmotion: hand
       enemyEmotion: idle
+      actionShot: 0
     - WhoIsSaying: 0
-      text: And I will your pockets until I find it! <color=green>(+10)
+      text: And I will your pockets until I find it! <color=green>(+15)
       playerEmotion: awed
       enemyEmotion: idle
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 0
       text: Smack!
       playerEmotion: smacked
       enemyEmotion: smacked
-  AttkPower: 10
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
+  AttkPower: 15

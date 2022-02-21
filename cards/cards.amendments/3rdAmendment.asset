@@ -20,27 +20,34 @@ MonoBehaviour:
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Gahh!
       playerEmotion: shoudler_block
       enemyEmotion: shoudler_block
+      actionShot: 1
+  boostedStage: 0
+  boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: 9549a3ba361d28745935202715f84d4f, type: 2}
-    power: 14
+    power: 30
     dialogue:
       dialogues:
       - WhoIsSaying: 0
         text: Uhhh...
         playerEmotion: hand
         enemyEmotion: idle
+        actionShot: 0
       - WhoIsSaying: 0
         text: Im pretty sure you don't have the right to station military in my house!
         playerEmotion: hand
         enemyEmotion: awed
+        actionShot: 0
       - WhoIsSaying: 0
         text: 'It''s right here! Amendment #3! Read the Bill of Rights, pretty boy.
-          <color=green>(+14)'
+          <color=green>(+30)'
         playerEmotion: smug
         enemyEmotion: awed
+        actionShot: 0

@@ -20,14 +20,19 @@ MonoBehaviour:
       text: Can I ask you what exactly you were doing yesterday?
       playerEmotion: shrug
       enemyEmotion: idle
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Gahh!
       playerEmotion: shrug
       enemyEmotion: shoudler_block
+      actionShot: 0
     - WhoIsSaying: 1
-      text: I don't remember!
+      text: I don't remember! <color=green>(+15)
       playerEmotion: idle
       enemyEmotion: awed
-  AttkPower: 8
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
+  AttkPower: 15

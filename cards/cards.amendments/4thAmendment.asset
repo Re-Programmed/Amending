@@ -20,12 +20,16 @@ MonoBehaviour:
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Gahh!
       playerEmotion: smacked
       enemyEmotion: smacked
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: cbab8a755a154b1418832cae4c170c7a, type: 2}
     power: 25
@@ -35,6 +39,7 @@ MonoBehaviour:
         text: Maybe you forgot to check the FINE PRINT! <color=green>(+25)
         playerEmotion: hold_paper
         enemyEmotion: awed
+        actionShot: 0
   - card: {fileID: 11400000, guid: a3665570f542d6c4b93d7c4fb39ac745, type: 2}
     power: 20
     dialogue:
@@ -43,6 +48,7 @@ MonoBehaviour:
         text: Maybe you forgot to check the FINE PRINT! <color=green>(+20)
         playerEmotion: hold_paper
         enemyEmotion: awed
+        actionShot: 0
   - card: {fileID: 11400000, guid: dc99705ff200dda4980a735caafe26d9, type: 2}
     power: 3
     dialogue:
@@ -51,7 +57,9 @@ MonoBehaviour:
         text: You can't search me...
         playerEmotion: hand
         enemyEmotion: awed
+        actionShot: 0
       - WhoIsSaying: 0
         text: Oh, wait you have a warrant... <color=green>(+3)
         playerEmotion: smacked
         enemyEmotion: awed
+        actionShot: 0

@@ -11,7 +11,7 @@ namespace Cards
         Card lastgottencard;
         public AmendmentDefenses[] GetDefensePowers()
         {
-            AmendmentDefenses[] d = { new AmendmentDefenses(lastgottencard, 20, this.dialogue) };
+            AmendmentDefenses[] d = { new AmendmentDefenses(lastgottencard, 30, this.dialogue) };
             return d;
         }
 

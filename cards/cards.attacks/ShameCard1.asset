@@ -20,14 +20,19 @@ MonoBehaviour:
       text: This news article proves you are against <issue>!!!
       playerEmotion: hold_paper
       enemyEmotion: idle
+      actionShot: 0
     - WhoIsSaying: 0
       text: Take That!
       playerEmotion: idle
       enemyEmotion: idle
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 0
-      text: Aghh!
+      text: Aghh! <color=green>(+15)
       playerEmotion: awed
       enemyEmotion: awed
-  AttkPower: 5
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
+  AttkPower: 15

@@ -22,7 +22,7 @@ MonoBehaviour:
       enemyEmotion: awed
       actionShot: 1
     - WhoIsSaying: 0
-      text: And, there is nothing you can do about that! <color=green>(+20)
+      text: And, there is nothing you can do about that! <color=green>(+30)
       playerEmotion: shrug
       enemyEmotion: awed
       actionShot: 1

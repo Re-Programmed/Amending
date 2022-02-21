@@ -20,22 +20,29 @@ MonoBehaviour:
       text: If you don't stop this argument right now...
       playerEmotion: shrug
       enemyEmotion: idle
+      actionShot: 0
     - WhoIsSaying: 0
       text: I have the right to station a small military in your household! <color=green>(+7)
       playerEmotion: hand
       enemyEmotion: smacked
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 0
       text: Ahhh!
       playerEmotion: idle
       enemyEmotion: smacked
+      actionShot: 0
     - WhoIsSaying: 0
       text: They will eat all my food!
       playerEmotion: idle
       enemyEmotion: hand
+      actionShot: 0
     - WhoIsSaying: 0
-      text: How will I survive?!?!?!?
+      text: How will I survive?!?!?!? <color=green>(+20)
       playerEmotion: idle
       enemyEmotion: shrug
-  AttkPower: 7
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
+  AttkPower: 20

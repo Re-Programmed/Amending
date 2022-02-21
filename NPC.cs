@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour
     [SerializeField]
     SpeechBubble speechBubble;
 
+    [SerializeField]
     EmotionDatabase.CurrentSprite sprite;
 
     bool inrangetalked = false;
@@ -64,6 +65,7 @@ public class NPC : MonoBehaviour
             speechBubble.defaultEEmotion = GetComponent<SpriteRenderer>().sprite;
             inrangetalked = true;
             speechBubble.Enemy = GetComponent<SpriteRenderer>();
+            
             speechBubble.Say(ds_inrange);
             speechBubble.statusChanged += UnlockPlayer;
         }

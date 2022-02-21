@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6864bc2c409dac4187777f7207ab69e, type: 3}
-  m_Name: Interview
+  m_Name: SlowTrial
   m_EditorClassIdentifier: 
-  Title: Interview
-  Desc: Interview your opponent on their opinions.
+  Title: Slow Trial Attack
+  Desc: Mention that you never give a speedy and public trial.
   dialogue:
     dialogues:
     - WhoIsSaying: 0
-      text: Can I ask you your opinion on <issue>?
-      playerEmotion: awed
+      text: I never give anyone a speedy and public trial.
+      playerEmotion: smug
       enemyEmotion: idle
       actionShot: 0
+    - WhoIsSaying: 0
+      text: Take That!
+      playerEmotion: hand
+      enemyEmotion: smacked
+      actionShot: 1
   retaliation:
     dialogues:
-    - WhoIsSaying: 1
-      text: (I don't know how to answer!)
+    - WhoIsSaying: 0
+      text: Ahhh! <color=green>(+15)
       playerEmotion: idle
-      enemyEmotion: hand
-      actionShot: 0
-    - WhoIsSaying: 1
-      text: Ouch! <color=green>(+15)
-      playerEmotion: idle
-      enemyEmotion: shoulder_block
-      actionShot: 0
-  boostedStage: 0
+      enemyEmotion: smacked
+      actionShot: 1
+  boostedStage: 1
   boostedPower: 0
   AttkPower: 15

@@ -43,6 +43,20 @@ public class DataStorage : MonoBehaviour
         savedata = new SaveData(GameObject.FindGameObjectWithTag("Player").transform.position, savedata.interactions);
         SaveData.Save(savedata);
         battleScenario = bs;
+
+        StartCoroutine(wipeTransition());
+    }
+
+    IEnumerator wipeTransition()
+    {
+        for(int i = 0; i < 100; i++)
+        {
+            Camera.main.orthographicSize = 5f - ((i / 100f) * 3f);
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        GameObject.FindGameObjectWithTag("wipe").GetComponent<Animator>().SetTrigger("wipe");
+        yield return new WaitForSeconds(1.1f);
         SceneManager.LoadSceneAsync(1);
     }
 }

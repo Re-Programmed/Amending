@@ -9289,6 +9289,36 @@ MonoBehaviour:
   - SpriteApply: 0
     sprite: {fileID: 21300000, guid: 77dce31b3e6d4f941869e0fb0537200c, type: 3}
     value: smug
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 3abfaccf567af304c8ba3fc31f4935fa, type: 3}
+    value: awed
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: bf1901ce83f2fd049b51a9df34883782, type: 3}
+    value: discombobulated
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 78cfe1824c5b9c449b569d7a58f8bd96, type: 3}
+    value: hand
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 2d85b1df6a97235448833749e95fca8e, type: 3}
+    value: hold_paper
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: ff06c363a143dcc4396bb8999bb5b8fb, type: 3}
+    value: idle
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: c9474edffd8ace14ea86b87071c4c41f, type: 3}
+    value: point_paper
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 4affd7ad9c1a20e44a70dfeea37d08a1, type: 3}
+    value: shoudler_block
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 6a22ee53140e5b244a9c60d46c26d814, type: 3}
+    value: shrug
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 07cbd9f41f3bbec42bb166e4209d023a, type: 3}
+    value: smacked
+  - SpriteApply: 3
+    sprite: {fileID: 21300000, guid: 90ad46beca73dd84b9d0addacc1db11f, type: 3}
+    value: smug
 --- !u!4 &1269493835
 Transform:
   m_ObjectHideFlags: 0
