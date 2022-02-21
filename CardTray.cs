@@ -4,6 +4,8 @@ using UnityEngine;
 
 using Cards;
 
+#pragma warning disable
+
 public class CardTray : MonoBehaviour
 {
     public GameObject card;

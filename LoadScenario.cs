@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable
+
 public class LoadScenario : MonoBehaviour
 {
     [SerializeField]
@@ -13,6 +15,9 @@ public class LoadScenario : MonoBehaviour
     [SerializeField]
     CardPile cp;
 
+    [SerializeField]
+    CardTray tray;
+
     private void Start()
     {
         if(DataStorage.INSTANCE != null)
@@ -21,9 +26,10 @@ public class LoadScenario : MonoBehaviour
             EmotionDatabase.INSTANCE.EnemySprite = DataStorage.INSTANCE.battleScenario.EnemySprite;
             sb.defaultEEmotion = EmotionDatabase.INSTANCE.GetEmotion("idle", DataStorage.INSTANCE.battleScenario.EnemySprite);
             enemy.sprite = sb.defaultEEmotion;
-            Enemy.EnemyAI.INSTANCE.cards = DataStorage.INSTANCE.battleScenario.EnemyCards;
+            Enemy.EnemyAI.INSTANCE.Drawables = DataStorage.INSTANCE.battleScenario.EnemyCards;
 
             cp.Cards = DataStorage.INSTANCE.battleScenario.AvailableCards;
+            tray.Cards = DataStorage.INSTANCE.battleScenario.AvailableCards;
         }
     }
 

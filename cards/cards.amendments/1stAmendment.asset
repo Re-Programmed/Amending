@@ -35,11 +35,11 @@ MonoBehaviour:
   boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: 66fd2697e0813444c92340a5ab56a037, type: 2}
-    power: 7
+    power: 20
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: You can't use things I said to attack me! <color=green>(+7)
+        text: You can't use things I said to attack me! <color=green>(+20)
         playerEmotion: point_paper
         enemyEmotion: awed
         actionShot: 1

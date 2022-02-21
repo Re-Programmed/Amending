@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+#pragma warning disable
+
 public class SpeechBubble : MonoBehaviour
 {
     [SerializeField]

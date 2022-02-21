@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable
+
 namespace Enemy
 {
     public class EnemyAI : MonoBehaviour
@@ -19,7 +21,7 @@ namespace Enemy
         public List<Card> cards = new List<Card>();
 
         [SerializeField]
-        Card[] Drawables;
+        public List<Card> Drawables;
 
         [SerializeField]
         DialogueSequence ds;
@@ -38,7 +40,7 @@ namespace Enemy
 
         public static void DrawCard()
         {
-            INSTANCE.cards.Add(INSTANCE.Drawables[Random.Range(0, INSTANCE.Drawables.Length)]);
+            INSTANCE.cards.Add(INSTANCE.Drawables[Random.Range(0, INSTANCE.Drawables.Count)]);
 
             TurnManager.EnemyDrawCard(INSTANCE.ds);
         }

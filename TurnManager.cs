@@ -7,6 +7,8 @@ using UnityEngine;
 
 using TMPro;
 
+#pragma warning disable
+
 public class TurnManager : MonoBehaviour
 {
     [SerializeField]

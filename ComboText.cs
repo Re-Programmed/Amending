@@ -4,6 +4,8 @@ using UnityEngine;
 
 using TMPro;
 
+#pragma warning disable
+
 public class ComboText : MonoBehaviour
 {
     [SerializeField]
