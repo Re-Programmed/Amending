@@ -21378,9 +21378,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can see the <color=orange>last played card</color> in the upper left
-    corner. If you think the last card played goes against an amendment you have,
-    you can play the amendment to attack your opponent!
+  m_text: Read what your opponent is saying. If you think the last thing they said
+    goes against an amendment you have, you can play the amendment to attack your
+    opponent!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a644275d9b67c0c41b9d328be3b38c76, type: 2}
   m_sharedMaterial: {fileID: 2617792616232785780, guid: a644275d9b67c0c41b9d328be3b38c76,
@@ -23845,6 +23845,8 @@ MonoBehaviour:
   player_sb: {fileID: 1220273015}
   LastCardWasEnemy: 0
   display: {fileID: 254279535}
+  win: {fileID: 576796944}
+  loose: {fileID: 1109234009}
   currentstage: 0
 --- !u!4 &1888809553
 Transform:

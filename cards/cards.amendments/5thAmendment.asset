@@ -21,21 +21,26 @@ MonoBehaviour:
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Oof!
       playerEmotion: idle
       enemyEmotion: shoudler_block
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: a12cceebef80a874aae641f5945067b5, type: 2}
-    power: 15
+    power: 20
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th. <color=green>(+15)
+        text: I plead the 5th. <color=green>(+20)
         playerEmotion: hand
         enemyEmotion: awed
+        actionShot: 0
   - card: {fileID: 11400000, guid: 66fd2697e0813444c92340a5ab56a037, type: 2}
     power: 5
     dialogue:
@@ -44,15 +49,18 @@ MonoBehaviour:
         text: I plead the 5th. <color=green>(+5)
         playerEmotion: hand
         enemyEmotion: awed
+        actionShot: 0
       - WhoIsSaying: 0
         text: (I don't know what I was thinking there...)
         playerEmotion: shrug
         enemyEmotion: awed
+        actionShot: 0
   - card: {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
-    power: 15
+    power: 20
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th. <color=green>(+15)
+        text: I plead the 5th. <color=green>(+20)
         playerEmotion: hand
         enemyEmotion: awed
+        actionShot: 0

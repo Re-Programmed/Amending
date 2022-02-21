@@ -41,6 +41,9 @@ public class TurnManager : MonoBehaviour
     private CurrentTurnDisplay display;
 
     [SerializeField]
+    GameObject win, loose;
+
+    [SerializeField]
     private StageType currentstage;
     public static StageType GetCurrentStageType() { return INSTANCE.currentstage; }
 
@@ -306,13 +309,13 @@ public class TurnManager : MonoBehaviour
         if(HealthManager.PlayerHealth <= 0)
         {
             //Loose
-            GameObject.FindGameObjectWithTag("loose").SetActive(true);
+           loose.SetActive(true);
         }
 
         if(HealthManager.EnemyHealth <= 0)
         {
             //Win
-            GameObject.FindGameObjectWithTag("win").SetActive(true);
+            win.SetActive(true);
         }
     }
 

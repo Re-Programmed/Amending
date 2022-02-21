@@ -18936,6 +18936,8 @@ MonoBehaviour:
   player_sb: {fileID: 1220273015}
   LastCardWasEnemy: 0
   display: {fileID: 254279535}
+  win: {fileID: 576796944}
+  loose: {fileID: 1109234009}
   currentstage: 0
 --- !u!4 &1888809553
 Transform:
