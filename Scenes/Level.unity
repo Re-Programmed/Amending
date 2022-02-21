@@ -2647,6 +2647,7 @@ MonoBehaviour:
     BattleTopic: 
     AvailableCards: []
     EnemyCards: []
+    id: 0
     EnemySprite: 0
 --- !u!4 &823018474
 Transform:
@@ -3731,6 +3732,33 @@ MonoBehaviour:
   - SpriteApply: 0
     sprite: {fileID: 21300000, guid: 54d0d1c5afa33284dbd83289854bc332, type: 3}
     value: idle
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: f4268f77091af25458b2859d8e3b7659, type: 3}
+    value: awed
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 4a56b725b65005a44b61974be939fb62, type: 3}
+    value: discombobulated
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: b471cdad756b56d4296aa47c9f0f331d, type: 3}
+    value: hand
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 89e731929946bec4eb5dd76acf72f1b4, type: 3}
+    value: hold_paper
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: ed38a57240d5dd04bb61e36d34a27c80, type: 3}
+    value: point_paper
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 43d464b2b3af5b5479e80518a1f6891d, type: 3}
+    value: shoudler_block
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 8ff8b78f63c28f1429485d3305a38582, type: 3}
+    value: shrug
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 8448506ca27260f4193ad36372bf57e9, type: 3}
+    value: smacked
+  - SpriteApply: 0
+    sprite: {fileID: 21300000, guid: 77dce31b3e6d4f941869e0fb0537200c, type: 3}
+    value: smug
 --- !u!4 &1130849916
 Transform:
   m_ObjectHideFlags: 0
@@ -6137,6 +6165,7 @@ MonoBehaviour:
     - {fileID: 6282881008268632916, guid: cf8d15b3b6cf957418d4e24f4f81f58f, type: 3}
     EnemyCards:
     - {fileID: 11400000, guid: b42bdd46b5dc35f40a258969fa87c3a0, type: 2}
+    id: 0
     EnemySprite: 0
   id: 1
 --- !u!61 &2057769999
