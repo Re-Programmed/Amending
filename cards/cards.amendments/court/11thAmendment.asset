@@ -13,17 +13,31 @@ MonoBehaviour:
   m_Name: 11thAmendment
   m_EditorClassIdentifier: 
   Title: 11th Amendment
-  Desc: Prohibits the federal courts from hearing certain lawsuits against states. (Card only works in state or court scenarios).
+  Desc: Prohibits the federal courts from hearing certain lawsuits against states.
+    (Only defends against the "Fine" Attack Card)
   dialogue:
     dialogues:
     - WhoIsSaying: 0
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Of course!
       playerEmotion: hand
       enemyEmotion: hand
+      actionShot: 1
+  boostedStage: 0
+  boostedPower: 0
   defenses:
+  - card: {fileID: 11400000, guid: cfec75f8cdf5f5b4da9ddb8454331904, type: 2}
+    power: 40
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: You can't hear a fine or lawsuit against me just because you are a judge!
+        playerEmotion: point_paper
+        enemyEmotion: point_paper
+        actionShot: 1

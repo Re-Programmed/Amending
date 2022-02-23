@@ -20,10 +20,56 @@ MonoBehaviour:
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Ahh!
       playerEmotion: shoudler_block
       enemyEmotion: shoudler_block
+      actionShot: 0
+  boostedStage: 0
+  boostedPower: 0
   defenses:
+  - card: {fileID: 11400000, guid: 67122556cf3782545bef182e2d6a1f9c, type: 2}
+    power: 25
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: Cruel and unusual punishment is banned! <color=green>(+25)
+        playerEmotion: hold_paper
+        enemyEmotion: hold_paper
+        actionShot: 1
+      - WhoIsSaying: 0
+        text: It says it in Amendment 8.
+        playerEmotion: shrug
+        enemyEmotion: shrug
+        actionShot: 1
+  - card: {fileID: 11400000, guid: 9b1d6ab4d24a2cc4d899010c71134f85, type: 2}
+    power: 35
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: Cruel and unusual punishment is banned! <color=green>(+35)
+        playerEmotion: hold_paper
+        enemyEmotion: hold_paper
+        actionShot: 1
+      - WhoIsSaying: 0
+        text: It says it in Amendment 8.
+        playerEmotion: shrug
+        enemyEmotion: shrug
+        actionShot: 1
+  - card: {fileID: 11400000, guid: c253fc3c9711e124690d654cdd93ee3d, type: 2}
+    power: 27
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: Cruel and unusual punishment is banned! <color=green>(+27)
+        playerEmotion: hold_paper
+        enemyEmotion: hold_paper
+        actionShot: 1
+      - WhoIsSaying: 0
+        text: It says it in Amendment 8.
+        playerEmotion: shrug
+        enemyEmotion: shrug
+        actionShot: 1

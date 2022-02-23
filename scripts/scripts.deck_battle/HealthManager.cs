@@ -22,4 +22,10 @@ public class HealthManager
 
         HPSlider.SetValue(EnemyHealth);
     }
+
+    public static void ResetHP()
+    {
+        EnemyHealth = 100;
+        PlayerHealth = 100;
+    }
 }

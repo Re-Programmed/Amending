@@ -13,17 +13,40 @@ MonoBehaviour:
   m_Name: 10thAmendment
   m_EditorClassIdentifier: 
   Title: 10th Amendment
-  Desc: The Federal Government only has those powers delegated in the Constitution. If it isn't listed, it belongs to the states or to the people. (Card only works in state scenarios).
+  Desc: 'The Federal Government only has those powers delegated in the Constitution.
+    If it isn''t listed, it belongs to the states or to the people. '
   dialogue:
     dialogues:
     - WhoIsSaying: 0
       text: 
       playerEmotion: 
       enemyEmotion: 
+      actionShot: 0
   retaliation:
     dialogues:
     - WhoIsSaying: 1
       text: Of course!
       playerEmotion: hand
       enemyEmotion: hand
+      actionShot: 1
+  boostedStage: 0
+  boostedPower: 0
   defenses:
+  - card: {fileID: 11400000, guid: cfec75f8cdf5f5b4da9ddb8454331904, type: 2}
+    power: 25
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: You only have the powers given to you by the constitution!
+        playerEmotion: hold_paper
+        enemyEmotion: hold_paper
+        actionShot: 0
+  - card: {fileID: 11400000, guid: 5e60a6819ee1e114ca426481b08b650a, type: 2}
+    power: 25
+    dialogue:
+      dialogues:
+      - WhoIsSaying: 0
+        text: You only have the powers given to you by the constitution!
+        playerEmotion: hold_paper
+        enemyEmotion: hold_paper
+        actionShot: 0

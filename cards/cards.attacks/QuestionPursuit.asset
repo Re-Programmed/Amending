@@ -29,10 +29,10 @@ MonoBehaviour:
       enemyEmotion: shoudler_block
       actionShot: 0
     - WhoIsSaying: 1
-      text: I don't remember! <color=green>(+15)
+      text: I don't remember! <color=green>(+25)
       playerEmotion: idle
       enemyEmotion: awed
       actionShot: 0
   boostedStage: 0
   boostedPower: 0
-  AttkPower: 15
+  AttkPower: 25

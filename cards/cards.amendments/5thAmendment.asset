@@ -33,11 +33,11 @@ MonoBehaviour:
   boostedPower: 0
   defenses:
   - card: {fileID: 11400000, guid: a12cceebef80a874aae641f5945067b5, type: 2}
-    power: 20
+    power: 30
     dialogue:
       dialogues:
       - WhoIsSaying: 0
-        text: I plead the 5th. <color=green>(+20)
+        text: I plead the 5th. <color=green>(+30)
         playerEmotion: hand
         enemyEmotion: awed
         actionShot: 0

@@ -22,7 +22,7 @@ MonoBehaviour:
       enemyEmotion: idle
       actionShot: 0
     - WhoIsSaying: 0
-      text: And I will your pockets until I find it! <color=green>(+15)
+      text: And I will search your pockets until I find it! <color=green>(+15)
       playerEmotion: awed
       enemyEmotion: idle
       actionShot: 0
